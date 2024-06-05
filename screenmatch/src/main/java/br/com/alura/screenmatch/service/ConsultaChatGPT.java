@@ -19,9 +19,9 @@ public class ConsultaChatGPT {
             var resposta = service.createCompletion(requisicao);
             return resposta.getChoices().get(0).getText().trim();
         } catch (OpenAiHttpException e) {
-            // Tratamento do erro de cota excedida
+            // Tratamento do erro de cota excedida ou chave expirada
             System.err.println("Erro na chamada da API do OpenAI: " + e.getMessage());
-            return "Tradução não disponível no momento devido a limite de cota excedido.";
+            return texto;  // Retorna o texto original se a tradução falhar
         }
     }
 }
