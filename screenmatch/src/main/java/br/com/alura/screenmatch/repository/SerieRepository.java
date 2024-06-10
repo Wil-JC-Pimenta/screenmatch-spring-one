@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.repository;
 
+<<<<<<< HEAD
 import br.com.alura.screenmatch.model.Categoria;
 import br.com.alura.screenmatch.model.Episodio;
 import br.com.alura.screenmatch.model.Serie;
@@ -30,3 +31,10 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s = :serie AND YEAR(e.dataLancamento) >= :anoLancamento")
     List<Episodio> episodiosPorSerieEAno(Serie serie, int anoLancamento);
 }
+=======
+import br.com.alura.screenmatch.model.Serie;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SerieRepository extends JpaRepository<Serie, Long> {
+}
+>>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15

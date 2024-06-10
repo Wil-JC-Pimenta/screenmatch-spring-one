@@ -6,7 +6,11 @@ import com.theokanning.openai.OpenAiHttpException;
 
 public class ConsultaChatGPT {
     public static String obterTraducao(String texto) {
+<<<<<<< HEAD
         OpenAiService service = new OpenAiService("OPENAI_APIKEY");
+=======
+        OpenAiService service = new OpenAiService(System.getenv("OPENAI_APIKEY"));
+>>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15
 
         CompletionRequest requisicao = CompletionRequest.builder()
                 .model("gpt-3.5-turbo-instruct")
