@@ -1,13 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
-<<<<<<< HEAD
 import br.com.alura.screenmatch.model.*;
-=======
-import br.com.alura.screenmatch.model.DadosSerie;
-import br.com.alura.screenmatch.model.DadosTemporada;
-import br.com.alura.screenmatch.model.Episodio;
-import br.com.alura.screenmatch.model.Serie;
->>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15
 import br.com.alura.screenmatch.repository.SerieRepository;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
@@ -21,7 +14,6 @@ import java.util.stream.Collectors;
 
 public class Principal {
 
-
     private Scanner leitura = new Scanner(System.in);
     private ConsumoApi consumo = new ConsumoApi();
     private ConverteDados conversor = new ConverteDados();
@@ -30,15 +22,10 @@ public class Principal {
     private List<DadosSerie> dadosSeries = new ArrayList<>();
 
     private SerieRepository repositorio;
-<<<<<<< HEAD
     private List<Serie> series = new ArrayList<>();
     private Optional<Serie> serieBusca;
 
     public Principal(SerieRepository repositorio) {
-=======
-
-    public Principal(SerieRepository repositorio){
->>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15
         this.repositorio = repositorio;
     }
 
@@ -61,8 +48,7 @@ public class Principal {
                     0 - Sair                                 
                     """;
 
-            System.out.println(menu
-            );
+            System.out.println(menu);
             opcao = leitura.nextInt();
             leitura.nextLine();
 
@@ -112,24 +98,10 @@ public class Principal {
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
         Serie serie = new Serie(dados);
-<<<<<<< HEAD
-
-        // Verificar se a série já existe no banco de dados
-        Optional<Serie> serieExistente = repositorio.findByTituloContainingIgnoreCase(serie.getTitulo());
-
-        if (serieExistente.isPresent()) {
-            System.out.println("Série já cadastrada: " + serieExistente.get());
-        } else {
-            repositorio.save(serie);
-            System.out.println("Série cadastrada com sucesso: " + dados);
-        }
-=======
         //dadosSeries.add(dados);
         repositorio.save(serie);
         System.out.println(dados);
->>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15
     }
-
 
     private DadosSerie getDadosSerie() {
         System.out.println("Digite o nome da série para busca");
@@ -170,7 +142,6 @@ public class Principal {
         }
     }
 
-<<<<<<< HEAD
     private void listarSeriesBuscadas(){
         series = repositorio.findAll();
         series.stream()
@@ -189,13 +160,6 @@ public class Principal {
         } else {
             System.out.println("Série não encontrada!");
         }
-=======
-    private void   listarSeriesBuscadas(){
-        List<Serie> series = repositorio.findAll();
-        series.stream()
-                .sorted(Comparator.comparing(Serie::getGenero))
-                .forEach(System.out::println);
->>>>>>> 3c182890420217b3329c83e2be6f2a02069a2d15
 
     }
 
